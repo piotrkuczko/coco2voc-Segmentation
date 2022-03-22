@@ -61,10 +61,8 @@ def coco2vocSegmentation(anns_file, target_folder, n=None, class_changer = None,
             continue
 
         if add_region_border:
-            sobelx = cv2.Sobel(class_seg,cv2.CV_64F,1,0,ksize=5)
-            sobely = cv2.Sobel(class_seg,cv2.CV_64F,0,1,ksize=5)
-            edges = np.where(((sobelx != 0) | (sobely != 0)), 1, 0)
-            class_seg = np.where(edges == 1, 255, class_seg)
+            laplacian = cv2.Laplacian(class_seg,cv2.CV_64F, ksize=5)
+            class_seg = np.where(laplacian != 0, 255, class_seg)
         
         image_to_save = Image.fromarray(class_seg).convert("P")
 
