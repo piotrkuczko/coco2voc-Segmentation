@@ -15,6 +15,6 @@ Also, the method does not download the COCO images but instead assumes they exis
 
 # Sample
 
-This tool will generate VOC dataset with borders
+This tool will generate VOC dataset with borders.
 
 ![photos/p1.png](photos/000000005802.jpg) ![photos/p2.png](photos/000000005802.png) 
